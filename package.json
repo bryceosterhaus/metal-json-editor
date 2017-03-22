@@ -1,0 +1,35 @@
+{
+  "name": "metal-json-editor",
+  "version": "0.0.1",
+  "description": "Metal.js component for editing json objects",
+  "engines": {
+    "node": ">=0.12.0",
+    "npm": ">=3.0.0"
+  },
+  "scripts": {
+    "build": "babel -d lib/ src/",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bryceosterhaus/metal-json-editor"
+  },
+  "author": "Bryce Osterhaus <bryceosterhaus@gmail.com>",
+  "dependencies": {
+    "metal-jsx": "^2.5.13"
+  },
+  "babel": {
+    "presets": [
+      "metal-jsx",
+      "es2015",
+      "stage-3"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-metal-jsx": "0.0.3",
+    "babel-preset-stage-3": "^6.17.0"
+  },
+  "main": "lib/JSONEditor.js"
+}
