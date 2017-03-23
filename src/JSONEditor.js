@@ -15,6 +15,19 @@ class JSONEditor extends Component {
 		);
 	}
 
+	handleToggleExpand(value) {
+		const {expandedNodes} = this.state;
+
+		if (expandedNodes.has(value)) {
+			expandedNodes.delete(value);
+		}
+		else {
+			expandedNodes.add(value);
+		}
+
+		this.state.expandedNodes = expandedNodes;
+	}
+
 	render() {
 		const {arrowRenderer, data} = this.props;
 
@@ -22,11 +35,17 @@ class JSONEditor extends Component {
 			<Tree
 				arrowRenderer={arrowRenderer}
 				data={data}
+				expandedNodes={this.state.expandedNodes}
 				onChange={this.handleChange.bind(this)}
+				onToggleExpand={this.handleToggleExpand.bind(this)}
 			/>
 		);
 	}
 }
+
+JSONEditor.STATE = {
+	expandedNodes: Config.instanceOf(WeakSet).value(new WeakSet())
+};
 
 JSONEditor.PROPS = {
 	arrowRenderer: Config.func().value(() => {}),

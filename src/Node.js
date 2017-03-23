@@ -23,22 +23,20 @@ class Node extends Component {
 	}
 
 	handleExpand() {
-		this.state.expanded = !this.state.expanded;
+		this.props.onToggleExpand(this.props.value);
 	}
 
 	render() {
 		const {
-			props: {
-				arrowRenderer,
-				locator,
-				name,
-				onChange,
-				value
-			},
-			state: {
-				expanded
-			}
-		} = this;
+			arrowRenderer,
+			expandedNodes,
+			locator,
+			name,
+			onChange,
+			value
+		} = this.props;
+
+		const expanded = expandedNodes.has(value);
 
 		const readOnly = value !== undefined && value !== null && value.__metal_devtools_read_only;
 
@@ -83,8 +81,10 @@ class Node extends Component {
 						<Tree
 							arrowRenderer={arrowRenderer}
 							data={value}
+							expandedNodes={expandedNodes}
 							locator={locator}
 							onChange={onChange}
+							onToggleExpand={this.props.onToggleExpand}
 						/>
 					}
 
@@ -99,14 +99,12 @@ class Node extends Component {
 
 Node.PROPS = {
 	arrowRenderer: Config.func().value(() => {}),
+	expandedNodes: Config.instanceOf(WeakSet).required(),
 	locator: Config.array().value([]),
 	name: Config.string(),
 	onChange: Config.func(),
+	onToggleExpand: Config.func(),
 	value: Config.any()
-};
-
-Node.STATE = {
-	expanded: Config.bool().value(false)
 };
 
 export default Node;
