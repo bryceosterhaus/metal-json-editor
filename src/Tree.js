@@ -4,7 +4,14 @@ import Node from './Node';
 
 class Tree extends Component {
 	render() {
-		const {arrowRenderer, data, locator, onChange} = this.props;
+		const {
+			arrowRenderer,
+			data,
+			expandedNodes,
+			locator,
+			onChange,
+			onToggleExpand
+		} = this.props;
 
 		return (
 			<ul class="tree-container" style="list-style: none; margin: 0;">
@@ -13,9 +20,11 @@ class Tree extends Component {
 						key => (
 							<Node
 								arrowRenderer={arrowRenderer}
+								expandedNodes={expandedNodes}
 								locator={[...locator, key]}
 								name={key}
 								onChange={onChange}
+								onToggleExpand={onToggleExpand}
 								value={data[key]}
 							/>
 						)
@@ -34,7 +43,9 @@ Tree.PROPS = {
 			Config.object()
 		]
 	),
+	expandedNodes: Config.instanceOf(WeakSet).required(),
 	onChange: Config.func(),
+	onToggleExpand: Config.func(),
 	locator: Config.array().value([])
 };
 

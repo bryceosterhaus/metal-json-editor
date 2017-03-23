@@ -6,6 +6,9 @@
     "node": ">=0.12.0",
     "npm": ">=3.0.0"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "babel -d lib/ src/",
     "prepublish": "npm run build"
