@@ -1,4 +1,4 @@
-'use strict';
+// @flow
 
 import Component, {Config} from 'metal-jsx';
 
@@ -6,8 +6,18 @@ import Node from './Node';
 import Tree from './Tree';
 import {setIn} from './util';
 
-class JSONEditor extends Component {
-	handleChange(locator, value) {
+interface Props {
+	arrowRenderer: () => any;
+	data: {};
+	onChange: () => ({});
+}
+
+interface State {
+	expandedNodes: WeakSet<*>
+}
+
+class JSONEditor extends Component<Props, State> {
+	handleChange(locator: mixed[], value: ?any) {
 		const {data, onChange} = this.props;
 
 		onChange(
@@ -15,7 +25,7 @@ class JSONEditor extends Component {
 		);
 	}
 
-	handleToggleExpand(value) {
+	handleToggleExpand(value: {}) {
 		const {expandedNodes} = this.state;
 
 		if (expandedNodes.has(value)) {
@@ -44,13 +54,13 @@ class JSONEditor extends Component {
 }
 
 JSONEditor.STATE = {
-	expandedNodes: Config.instanceOf(WeakSet).value(new WeakSet())
+	expandedNodes: Config.value(new WeakSet())
 };
 
 JSONEditor.PROPS = {
-	arrowRenderer: Config.func().value(() => {}),
-	data: Config.object().value({}),
-	onChange: Config.func()
+	arrowRenderer: Config.value(() => {}),
+	data: Config.value({}),
+	onChange: {}
 };
 
-export default JSONEditor;
+export default typeof JSONEditor;

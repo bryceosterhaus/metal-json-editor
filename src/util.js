@@ -1,3 +1,5 @@
+// @flow
+
 export const TYPE_COLORS = {
 	boolean: '#AA0D91',
 	null: '#FF8C00',
@@ -6,7 +8,7 @@ export const TYPE_COLORS = {
 	string: '#C41A16'
 };
 
-export function setIn(initVal, locator = [], value) {
+export function setIn(initVal: ({} | []), locator: mixed[] = [], value: any): any {
 	if (!(initVal instanceof Object)) {
 		return initVal;
 	}
@@ -24,4 +26,4 @@ export function setIn(initVal, locator = [], value) {
 	retVal[locator[i]] = value;
 
 	return clonedVal;
-}
+};

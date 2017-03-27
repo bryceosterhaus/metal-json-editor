@@ -1,8 +1,19 @@
+// @flow
+
 import Component, {Config} from 'metal-jsx';
 
 import Node from './Node';
 
-class Tree extends Component {
+interface Props {
+	arrowRenderer: () => any;
+	data: {};
+	expandedNodes: WeakSet<*>;
+	locator: mixed[];
+	onChange: () => ({});
+	onToggleExpand: () => any;
+}
+
+class Tree extends Component<Props, {}> {
 	render() {
 		const {
 			arrowRenderer,
@@ -17,7 +28,7 @@ class Tree extends Component {
 			<ul class="tree-container" style="list-style: none; margin: 0;">
 				{
 					Object.keys(data).map(
-						key => (
+						(key: string) => (
 							<Node
 								arrowRenderer={arrowRenderer}
 								expandedNodes={expandedNodes}
@@ -36,17 +47,12 @@ class Tree extends Component {
 }
 
 Tree.PROPS = {
-	arrowRenderer: Config.func().value(() => {}),
-	data: Config.oneOfType(
-		[
-			Config.array(),
-			Config.object()
-		]
-	),
-	expandedNodes: Config.instanceOf(WeakSet).required(),
-	onChange: Config.func(),
-	onToggleExpand: Config.func(),
-	locator: Config.array().value([])
+	arrowRenderer: Config.value(() => {}),
+	data: {},
+	expandedNodes: Config.required(),
+	onChange: {},
+	onToggleExpand: {},
+	locator: Config.value([])
 };
 
-export default Tree;
+export default typeof Tree;

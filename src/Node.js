@@ -1,10 +1,29 @@
+// @flow
+
 import Component, {Config} from 'metal-jsx';
 
 import Tree from './Tree';
 import EditableValue from './EditableValue';
 
-class Node extends Component {
-	getBracket(value, open = true) {
+type ReadOnly = {
+	__metal_devtools_read_only: boolean;
+}
+
+interface Props {
+	arrowRenderer: (val: boolean) => ?any;
+	data: ({} | []);
+	expandedNodes: WeakSet<*>;
+	locator: mixed[];
+	name: string;
+	onChange: () => ({});
+	onToggleExpand: () => ?any;
+	value: ReadOnly | ?any;
+}
+
+type ArrOrObj = [] | {};
+
+class Node extends Component<Props, {}> {
+	getBracket(value: ArrOrObj, open: boolean = true): string {
 		const array = Array.isArray(value);
 
 		let retVal = open ? '{' : '}';
@@ -16,7 +35,7 @@ class Node extends Component {
 		return retVal;
 	}
 
-	getSize(value) {
+	getSize(value: ArrOrObj): number {
 		const array = Array.isArray(value);
 
 		return array ? value.length : Object.keys(value).length
@@ -38,7 +57,7 @@ class Node extends Component {
 
 		const expanded = expandedNodes.has(value);
 
-		const readOnly = value !== undefined && value !== null && value.__metal_devtools_read_only;
+		const readOnly = typeof value === "object" && value !== null && value.__metal_devtools_read_only;
 
 		const displayAsObj = value instanceof Object && !readOnly;
 
@@ -98,13 +117,13 @@ class Node extends Component {
 }
 
 Node.PROPS = {
-	arrowRenderer: Config.func().value(() => {}),
-	expandedNodes: Config.instanceOf(WeakSet).required(),
-	locator: Config.array().value([]),
-	name: Config.string(),
-	onChange: Config.func(),
-	onToggleExpand: Config.func(),
-	value: Config.any()
+	arrowRenderer: Config.value(() => {}),
+	expandedNodes: Config.required(),
+	locator: Config.value([]),
+	name: {},
+	onChange: {},
+	onToggleExpand: {},
+	value: {}
 };
 
-export default Node;
+export default typeof Node;

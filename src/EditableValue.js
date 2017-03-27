@@ -1,10 +1,32 @@
+// @flow
+
 import Component, {Config} from 'metal-jsx';
 
 import {TYPE_COLORS} from './util';
 
+interface readOnlyType {
+	__metal_devtools_read_only: ?boolean;
+	value: ?any
+};
 
-class EditableValue extends Component {
-	getTypeStyle(value) {
+interface Props {
+	locator: mixed[];
+	name: string;
+	onChange: () => ({});
+	readOnly: boolean;
+	value: readOnlyType | any | null
+}
+
+interface State {
+	editing: boolean
+}
+
+type BlurEvent = {
+	target: {value: string}
+};
+
+class EditableValue extends Component<Props, State> {
+	getTypeStyle(value): string {
 		const {readOnly} = this.props;
 
 		let type = '';
@@ -28,12 +50,12 @@ class EditableValue extends Component {
 				{
 					editing: true
 				},
-				() => this.refs.input.focus()
+				this.refs.input.focus
 			);
 		}
 	}
 
-	submitValue({target}) {
+	submitValue({target}: BlurEvent) {
 		const valType = typeof this.props.value;
 
 		this.state.editing = false;
@@ -63,7 +85,7 @@ class EditableValue extends Component {
 		return (
 			<span style={this.getTypeStyle(value)} onClick={this.handleValueEdit.bind(this)} title={readOnly ? 'Read Only': 'Click to Edit'}>
 				{!editing && value !== undefined &&
-					<span style="white-space: pre;">{value + ''}</span>
+					<span style="white-space: pre;">{String(value)}</span>
 				}
 
 				{!editing && (value === undefined || value === '') &&
@@ -81,14 +103,15 @@ class EditableValue extends Component {
 }
 
 EditableValue.PROPS = {
-	name: Config.string(),
-	onChange: Config.func(),
-	readOnly: Config.bool().value(false),
-	value: Config.any()
+	locator: {},
+	name: {},
+	onChange: {},
+	readOnly: Config.value(false),
+	value: {}
 };
 
 EditableValue.STATE = {
 	editing: Config.value(false)
 };
 
-export default EditableValue;
+export default typeof EditableValue;

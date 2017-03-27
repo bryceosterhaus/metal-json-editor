@@ -1,0 +1,7 @@
+[ignore]
+[include]
+[libs]
+./flow-typed/metal-jsx.js
+[options]
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
