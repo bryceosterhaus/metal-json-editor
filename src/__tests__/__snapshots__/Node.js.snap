@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Node renders 1`] = `
+<li>
+  <div key="_metal_jsx_1">
+    <span style="" key="_metal_jsx_1">undefined: </span>
+    <span style="" title="Click to Edit" key="_metal_jsx_2">
+      <span key="_metal_jsx_2"> "" </span>
+    </span>
+  </div>
+</li>
+`;
+
+exports[`Node should return the proper bracket 1`] = `"["`;
+
+exports[`Node should return the proper bracket 2`] = `"]"`;
+
+exports[`Node should return the proper bracket 3`] = `"{"`;
+
+exports[`Node should return the proper bracket 4`] = `"}"`;
+
+exports[`Node should return the size of the object or array 1`] = `2`;
+
+exports[`Node should return the size of the object or array 2`] = `3`;

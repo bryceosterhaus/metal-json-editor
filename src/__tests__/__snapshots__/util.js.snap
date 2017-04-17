@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`setIn should return same value if not an object instance 1`] = `1`;
+
+exports[`setIn should set nested value in object 1`] = `
+Object {
+  "foo": Object {
+    "bar": "baz",
+  },
+}
+`;
+
+exports[`setIn should set value in array 1`] = `
+Array [
+  "baz",
+]
+`;
+
+exports[`setIn should set value in object 1`] = `
+Object {
+  "foo": "bar",
+}
+`;

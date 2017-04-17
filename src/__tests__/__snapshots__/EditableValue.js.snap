@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableValue renders 1`] = `
+<span style="" title="Click to Edit">
+  <span key="_metal_jsx_2"> "" </span>
+</span>
+`;
+
+exports[`EditableValue should call onChange with new number value 1`] = `
+Object {
+  "editing": false,
+}
+`;
+
+exports[`EditableValue should call onChange with new number value 2`] = `
+Object {
+  "editing": false,
+}
+`;
+
+exports[`EditableValue should call onChange with new number value 3`] = `
+Object {
+  "editing": false,
+}
+`;
+
+exports[`EditableValue should render in readOnly mode 1`] = `
+<span style="color: rgb(17, 119, 0);" title="Read Only">
+  <span style="white-space: pre;" key="_metal_jsx_1">Function()</span>
+</span>
+`;
+
+exports[`EditableValue should render with editing enabled 1`] = `
+<span style="color: rgb(28, 0, 207);" title="Click to Edit">
+  <input value="1" ref="input" key="_metal_jsx_3">
+</span>
+`;
+
+exports[`EditableValue should return color value 1`] = `"color: #C41A16;"`;
+
+exports[`EditableValue should return color value 2`] = `"color: #FF8C00;"`;
+
+exports[`EditableValue should return color value 3`] = `"color: #1C00CF;"`;
+
+exports[`EditableValue should return color value 4`] = `"color: #117700;"`;
+
+exports[`EditableValue should update state 1`] = `
+Object {
+  "editing": true,
+}
+`;

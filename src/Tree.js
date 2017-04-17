@@ -42,7 +42,7 @@ Tree.PROPS = {
 			Config.array(),
 			Config.object()
 		]
-	),
+	).value({}),
 	expandedNodes: Config.instanceOf(WeakSet).required(),
 	onChange: Config.func(),
 	onToggleExpand: Config.func(),

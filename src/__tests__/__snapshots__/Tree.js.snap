@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree renders 1`] = `
+<ul class="tree-container" style="list-style: none; margin: 0px;">
+  <li key="_metal_jsx_1">
+    <div key="_metal_jsx_1">
+      <span style="" key="_metal_jsx_1">one: </span>
+      <span style="color: rgb(28, 0, 207);" title="Click to Edit" key="_metal_jsx_2">
+        <span style="white-space: pre;" key="_metal_jsx_1">2</span>
+      </span>
+    </div>
+  </li>
+  <li key="_metal_jsx_2">
+    <div key="_metal_jsx_1">
+      <span style="" key="_metal_jsx_1">three: </span>
+      <span style="color: rgb(196, 26, 22);" title="Click to Edit" key="_metal_jsx_2">
+        <span style="white-space: pre;" key="_metal_jsx_1">four</span>
+      </span>
+    </div>
+  </li>
+</ul>
+`;

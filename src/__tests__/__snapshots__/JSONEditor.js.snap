@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSONEditor renders 1`] = `<ul class="tree-container" style="list-style: none; margin: 0px;"></ul>`;
+
+exports[`JSONEditor should call onChange 1`] = `
+Array [
+  Array [
+    Object {
+      "foo": "baz",
+    },
+  ],
+]
+`;
+
+exports[`JSONEditor should set and remove expanded value from "expandedNodes" 1`] = `true`;
+
+exports[`JSONEditor should set and remove expanded value from "expandedNodes" 2`] = `false`;
