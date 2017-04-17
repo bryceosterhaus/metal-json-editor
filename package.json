@@ -13,6 +13,8 @@
     "build": "babel -d lib/ src/",
     "format": "eslint . --ignore-pattern node_modules --ignore-pattern lib --ignore-pattern coverage --fix",
     "prepublish": "npm run build",
+    "precommit": "npm run format",
+    "prepush": "npm test",
     "test": "jest"
   },
   "repository": {
@@ -40,6 +42,7 @@
     "eslint": "^3.19.0",
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^6.10.3",
+    "husky": "^0.13.3",
     "jest": "^19.0.2",
     "metal-jest-serializer": "^1.0.1",
     "prettier": "^1.1.0"
