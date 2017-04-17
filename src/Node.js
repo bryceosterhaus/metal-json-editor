@@ -19,7 +19,7 @@ class Node extends Component {
 	getSize(value) {
 		const array = Array.isArray(value);
 
-		return array ? value.length : Object.keys(value).length
+		return array ? value.length : Object.keys(value).length;
 	}
 
 	handleExpand() {
@@ -38,14 +38,18 @@ class Node extends Component {
 
 		const expanded = expandedNodes.has(value);
 
-		const readOnly = value !== undefined && value !== null && value.__metal_devtools_read_only;
+		const readOnly =
+			value !== undefined && value !== null && value.__metal_devtools_read_only;
 
 		const displayAsObj = value instanceof Object && !readOnly;
 
 		return (
 			<li>
 				<div>
-					<span onClick={this.handleExpand.bind(this)} style={displayAsObj ? 'cursor: pointer;' : ''}>
+					<span
+						onClick={this.handleExpand.bind(this)}
+						style={displayAsObj ? 'cursor: pointer;' : ''}
+					>
 						{`${name}: `}
 					</span>
 
@@ -56,28 +60,26 @@ class Node extends Component {
 							onChange={onChange}
 							value={value}
 							readOnly={readOnly}
-						/>
-					}
+						/>}
 
 					{displayAsObj &&
 						<span>
-							<span onClick={this.handleExpand.bind(this)} style="cursor: pointer;">
+							<span
+								onClick={this.handleExpand.bind(this)}
+								style="cursor: pointer;"
+							>
 								{arrowRenderer(expanded)}
 							</span>
 
 							{this.getBracket(value)}
 
-							{!expanded &&
-								this.getSize(value)
-							}
+							{!expanded && this.getSize(value)}
 
-							{!expanded &&
-								this.getBracket(value, false)
-							}
-						</span>
-					}
+							{!expanded && this.getBracket(value, false)}
+						</span>}
 
-					{expanded && displayAsObj &&
+					{expanded &&
+						displayAsObj &&
 						<Tree
 							arrowRenderer={arrowRenderer}
 							data={value}
@@ -85,12 +87,9 @@ class Node extends Component {
 							locator={locator}
 							onChange={onChange}
 							onToggleExpand={this.props.onToggleExpand}
-						/>
-					}
+						/>}
 
-					{expanded && displayAsObj &&
-						this.getBracket(value, false)
-					}
+					{expanded && displayAsObj && this.getBracket(value, false)}
 				</div>
 			</li>
 		);

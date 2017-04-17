@@ -15,21 +15,17 @@ class Tree extends Component {
 
 		return (
 			<ul class="tree-container" style="list-style: none; margin: 0;">
-				{
-					Object.keys(data).map(
-						key => (
-							<Node
-								arrowRenderer={arrowRenderer}
-								expandedNodes={expandedNodes}
-								locator={[...locator, key]}
-								name={key}
-								onChange={onChange}
-								onToggleExpand={onToggleExpand}
-								value={data[key]}
-							/>
-						)
-					)
-				}
+				{Object.keys(data).map(key => (
+					<Node
+						arrowRenderer={arrowRenderer}
+						expandedNodes={expandedNodes}
+						locator={[...locator, key]}
+						name={key}
+						onChange={onChange}
+						onToggleExpand={onToggleExpand}
+						value={data[key]}
+					/>
+				))}
 			</ul>
 		);
 	}
@@ -37,12 +33,7 @@ class Tree extends Component {
 
 Tree.PROPS = {
 	arrowRenderer: Config.func().value(() => {}),
-	data: Config.oneOfType(
-		[
-			Config.array(),
-			Config.object()
-		]
-	).value({}),
+	data: Config.oneOfType([Config.array(), Config.object()]).value({}),
 	expandedNodes: Config.instanceOf(WeakSet).required(),
 	onChange: Config.func(),
 	onToggleExpand: Config.func(),

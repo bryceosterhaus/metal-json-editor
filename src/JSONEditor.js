@@ -2,7 +2,6 @@
 
 import Component, {Config} from 'metal-jsx';
 
-import Node from './Node';
 import Tree from './Tree';
 import {setIn} from './util';
 
@@ -10,9 +9,7 @@ class JSONEditor extends Component {
 	handleChange(locator, value) {
 		const {data, onChange} = this.props;
 
-		onChange(
-			setIn(data, locator, value)
-		);
+		onChange(setIn(data, locator, value));
 	}
 
 	handleToggleExpand(value) {
@@ -20,8 +17,7 @@ class JSONEditor extends Component {
 
 		if (expandedNodes.has(value)) {
 			expandedNodes.delete(value);
-		}
-		else {
+		} else {
 			expandedNodes.add(value);
 		}
 

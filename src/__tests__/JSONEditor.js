@@ -1,68 +1,52 @@
 import JSONEditor from '../JSONEditor';
 
-describe(
-	'JSONEditor',
-	() => {
-		let component;
+describe('JSONEditor', () => {
+	let component;
 
-		afterEach(
-			() => {
-				if (component) {
-					component.dispose();
-				}
-			}
-		);
+	afterEach(() => {
+		if (component) {
+			component.dispose();
+		}
+	});
 
-		it(
-			'renders',
-			() => {
-				component = new JSONEditor();
+	it('renders', () => {
+		component = new JSONEditor();
 
-				expect(component).toMatchSnapshot();
-			}
-		);
+		expect(component).toMatchSnapshot();
+	});
 
-		it(
-			'should call onChange',
-			() => {
-				const spy = jest.fn();
+	it('should call onChange', () => {
+		const spy = jest.fn();
 
-				component = new JSONEditor(
-					{
-						data: {
-							foo: 'bar'
-						},
-						onChange: spy
-					}
-				);
+		component = new JSONEditor({
+			data: {
+				foo: 'bar'
+			},
+			onChange: spy
+		});
 
-				component.handleChange(['foo'], 'baz');
+		component.handleChange(['foo'], 'baz');
 
-				expect(spy.mock.calls).toMatchSnapshot();
-			}
-		);
+		expect(spy.mock.calls).toMatchSnapshot();
+	});
 
-		it(
-			'should set and remove expanded value from "expandedNodes"',
-			() => {
-				component = new JSONEditor();
+	it('should set and remove expanded value from "expandedNodes"', () => {
+		component = new JSONEditor();
 
-				component.state.expandedNodes = new WeakSet();
+		component.state.expandedNodes = new WeakSet();
 
-				const obj = {foo: 'foo'};
+		const obj = {foo: 'foo'};
 
-				component.handleToggleExpand(obj);
+		component.handleToggleExpand(obj);
 
-				jest.runAllTimers();
+		jest.runAllTimers();
 
-				expect(component.state.expandedNodes.has(obj)).toMatchSnapshot();
+		expect(component.state.expandedNodes.has(obj)).toMatchSnapshot();
 
-				component.handleToggleExpand(obj);
+		component.handleToggleExpand(obj);
 
-				jest.runAllTimers();
+		jest.runAllTimers();
 
-				expect(component.state.expandedNodes.has(obj)).toMatchSnapshot();
-			}
-		);
-	}
-);
+		expect(component.state.expandedNodes.has(obj)).toMatchSnapshot();
+	});
+});
