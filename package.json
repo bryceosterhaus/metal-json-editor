@@ -11,9 +11,12 @@
   ],
   "scripts": {
     "build": "babel -d lib/ src/",
-    "format": "eslint . --ignore-pattern node_modules --ignore-pattern lib --ignore-pattern coverage --fix",
-    "prepublish": "npm run build",
+    "format": "npm run format:prettier && npm run format:eslint",
+    "format:eslint": "eslint \"src/**/*.js\" --fix",
+    "format:prettier": "prettier --single-quote --no-bracket-spacing --write \"src/**/*.js\"",
+    "lint": "eslint \"src/**/*.js\"",
     "precommit": "npm run format",
+    "prepublish": "npm run build",
     "prepush": "npm test",
     "test": "jest"
   },
@@ -40,12 +43,12 @@
     "babel-preset-metal-jsx": "0.0.3",
     "babel-preset-stage-3": "^6.17.0",
     "eslint": "^3.19.0",
-    "eslint-plugin-prettier": "^2.0.1",
+    "eslint-config-liferay": "^1.0.1",
     "eslint-plugin-react": "^6.10.3",
     "husky": "^0.13.3",
     "jest": "^19.0.2",
     "metal-jest-serializer": "^1.0.1",
-    "prettier": "^1.1.0"
+    "prettier": "^1.2.2"
   },
   "jest": {
     "automock": false,

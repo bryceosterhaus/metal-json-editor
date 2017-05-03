@@ -1,0 +1,28 @@
+{
+  "extends": ["liferay"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "plugins": ["react"],
+  "rules": {
+    "arrow-parens": [2, "as-needed"],
+    "arrow-spacing": 2,
+    "comma-dangle": ["error", 2],
+    "curly": 2,
+    "prefer-const": 2,
+    "react/jsx-sort-props": 2,
+    "react/jsx-uses-vars": 2,
+    "react/self-closing-comp": 2,
+    "require-jsdoc": 0,
+    "sort-keys": 2,
+    "sort-vars": 2
+  }
+}
