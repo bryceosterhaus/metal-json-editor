@@ -3,95 +3,102 @@ import Component, {Config} from 'metal-jsx';
 import {TYPE_COLORS} from './util';
 
 class EditableValue extends Component {
-	getTypeStyle(value) {
-		const {readOnly} = this.props;
+  getTypeStyle(value) {
+    let {typeColors} = this.props;
 
-		let type = '';
+    if (!typeColors) {
+      typeColors = TYPE_COLORS;
+    }
 
-		if (value === null) {
-			type = 'null';
-		} else if (readOnly) {
-			type = 'readOnly';
-		} else {
-			type = typeof value;
-		}
+    let type = '';
 
-		return `color: ${TYPE_COLORS[type]};`;
-	}
+    if (value === null) {
+      type = 'null';
+    } else if (this.props.readOnly) {
+      type = 'readOnly';
+    } else {
+      type = typeof value;
+    }
 
-	handleValueEdit() {
-		if (!this.props.readOnly) {
-			this.setState(
-				{
-					editing: true
-				},
-				() => this.refs.input.focus()
-			);
-		}
-	}
+    return `color: ${typeColors[type]};`;
+  }
 
-	submitValue({target}) {
-		const valType = typeof this.props.value;
+  handleValueEdit() {
+    if (!this.props.readOnly) {
+      this.setState(
+        {
+          editing: true
+        },
+        () => this.refs.input.focus()
+      );
+    }
+  }
 
-		this.state.editing = false;
+  submitValue({target}) {
+    const valType = typeof this.props.value;
 
-		let newVal = target.value;
+    this.state.editing = false;
 
-		if (valType === 'boolean') {
-			newVal = newVal === 'true' ? true : false;
-		} else if (valType === 'number') {
-			newVal = Number(newVal);
-		}
+    let newVal = target.value;
 
-		if (newVal !== this.props.value) {
-			this.props.onChange(this.props.locator, newVal);
-		}
-	}
+    if (valType === 'boolean') {
+      newVal = newVal === 'true' ? true : false;
+    } else if (valType === 'number') {
+      newVal = Number(newVal);
+    }
 
-	render() {
-		let {readOnly, value} = this.props;
-		const {editing} = this.state;
+    if (newVal !== this.props.value) {
+      this.props.onChange(this.props.locator, newVal);
+    }
+  }
 
-		if (value && value.__metal_devtools_read_only) {
-			value = value.value;
-		}
+  render() {
+    const {readOnly, value} = this.props;
+    const {editing} = this.state;
 
-		return (
-			<span
-				style={this.getTypeStyle(value)}
-				onClick={this.handleValueEdit.bind(this)}
-				title={readOnly ? 'Read Only' : 'Click to Edit'}
-			>
-				{!editing &&
-					value !== undefined &&
-					<span style="white-space: pre;">{value + ''}</span>}
+    let retVal = value;
 
-				{!editing &&
-					(value === undefined || value === '') &&
-					<span>
-						""
-					</span>}
+    if (retVal && retVal.__metal_devtools_read_only) {
+      retVal = value.value;
+    }
 
-				{editing &&
-					<input
-						ref="input"
-						onBlur={this.submitValue.bind(this)}
-						value={value}
-					/>}
-			</span>
-		);
-	}
+    return (
+      <span
+        onClick={this.handleValueEdit.bind(this)}
+        style={this.getTypeStyle(retVal)}
+        title={readOnly ? 'Read Only' : 'Click to Edit'}
+      >
+        {!editing &&
+          retVal !== undefined &&
+          <span style="white-space: pre;">{retVal + ''}</span>}
+
+        {!editing &&
+          (retVal === undefined || retVal === '') &&
+          <span>
+            ""
+          </span>}
+
+        {editing &&
+          <input
+            onBlur={this.submitValue.bind(this)}
+            ref="input"
+            value={retVal}
+          />}
+      </span>
+    );
+  }
 }
 
 EditableValue.PROPS = {
-	name: Config.string(),
-	onChange: Config.func(),
-	readOnly: Config.bool().value(false),
-	value: Config.any()
+  name: Config.string(),
+  onChange: Config.func(),
+  readOnly: Config.bool().value(false),
+  typeColors: Config.object(),
+  value: Config.any()
 };
 
 EditableValue.STATE = {
-	editing: Config.value(false)
+  editing: Config.value(false)
 };
 
 export default EditableValue;
