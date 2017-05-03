@@ -4,23 +4,24 @@ import {TYPE_COLORS} from './util';
 
 class EditableValue extends Component {
   getTypeStyle(value) {
-    let {typeColors} = this.props;
-
-    if (!typeColors) {
-      typeColors = TYPE_COLORS;
-    }
+    const {readOnly, typeColors = {}} = this.props;
 
     let type = '';
 
     if (value === null) {
       type = 'null';
-    } else if (this.props.readOnly) {
+    } else if (readOnly) {
       type = 'readOnly';
     } else {
       type = typeof value;
     }
 
-    return `color: ${typeColors[type]};`;
+    const colorMap = {
+      ...TYPE_COLORS,
+      ...typeColors
+    };
+
+    return `color: ${colorMap[type]};`;
   }
 
   handleValueEdit() {
