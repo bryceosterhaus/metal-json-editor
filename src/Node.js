@@ -89,6 +89,7 @@ class Node extends Component {
               locator={locator}
               onChange={onChange}
               onToggleExpand={this.props.onToggleExpand}
+              typeColors={typeColors}
             />}
 
           {expanded && displayAsObj && this.getBracket(value, false)}

@@ -15,6 +15,33 @@ describe('JSONEditor', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('renders with custom typeColors', () => {
+    component = new JSONEditor({
+      data: {
+        bar: 1,
+        baz: true,
+        foo: 'bar'
+      }
+    });
+
+    expect(component).toMatchSnapshot();
+
+    const componentWithColors = new JSONEditor({
+      data: {
+        bar: 1,
+        baz: true,
+        foo: 'bar'
+      },
+      typeColors: {
+        boolean: '#000',
+        number: '#111',
+        string: '#222'
+      }
+    });
+
+    expect(componentWithColors).toMatchSnapshot();
+  });
+
   it('should call onChange', () => {
     const spy = jest.fn();
 
