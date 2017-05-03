@@ -6,6 +6,12 @@ exports[`EditableValue renders 1`] = `
 </span>
 `;
 
+exports[`EditableValue should be able to pass in custom colors 1`] = `
+<span style="color: rgb(0, 0, 0);" title="Click to Edit">
+  <span style="white-space: pre;" key="_metal_jsx_1">true</span>
+</span>
+`;
+
 exports[`EditableValue should call onChange with new number value 1`] = `
 Object {
   "editing": false,

@@ -104,4 +104,15 @@ describe('EditableValue', () => {
 
     expect(component).toMatchSnapshot();
   });
+
+  it('should be able to pass in custom colors', () => {
+    component = new EditableValue({
+      typeColors: {
+        boolean: '#000000'
+      },
+      value: true
+    });
+
+    expect(component).toMatchSnapshot();
+  });
 });
