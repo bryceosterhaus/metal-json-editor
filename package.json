@@ -1,6 +1,6 @@
 {
   "name": "metal-json-editor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Metal.js component for editing json objects",
   "engines": {
     "node": ">=0.12.0",
