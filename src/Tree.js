@@ -16,7 +16,7 @@ class Tree extends Component {
 
     return (
       <ul class="tree-container" style="list-style: none; margin: 0;">
-        {Object.keys(data).map(key => (
+        {Object.keys(data).map(key =>
           <Node
             arrowRenderer={arrowRenderer}
             expandedNodes={expandedNodes}
@@ -27,7 +27,7 @@ class Tree extends Component {
             typeColors={typeColors}
             value={data[key]}
           />
-        ))}
+        )}
       </ul>
     );
   }

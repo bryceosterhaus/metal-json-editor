@@ -2,10 +2,10 @@
 
 exports[`Node renders 1`] = `
 <li>
-  <div key="_metal_jsx_1">
-    <span style="" key="_metal_jsx_1">undefined: </span>
-    <span style="" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
-      <span key="_metal_jsx_2"> "" </span>
+  <div>
+    <span style="">undefined: </span>
+    <span style="" title="Click to Edit" class="json-editor-value">
+      <span> "" </span>
     </span>
   </div>
 </li>
