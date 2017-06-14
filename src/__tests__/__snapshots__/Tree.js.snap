@@ -5,7 +5,7 @@ exports[`Tree renders 1`] = `
   <li key="_metal_jsx_1">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">one: </span>
-      <span style="color: rgb(28, 0, 207);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(28, 0, 207);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">2</span>
       </span>
     </div>
@@ -13,7 +13,7 @@ exports[`Tree renders 1`] = `
   <li key="_metal_jsx_2">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">three: </span>
-      <span style="color: rgb(196, 26, 22);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(196, 26, 22);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">four</span>
       </span>
     </div>

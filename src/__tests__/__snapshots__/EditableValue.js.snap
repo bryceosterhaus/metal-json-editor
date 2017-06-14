@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EditableValue renders 1`] = `
-<span style="" title="Click to Edit">
+<span style="" title="Click to Edit" class="json-editor-value">
   <span key="_metal_jsx_2"> "" </span>
 </span>
 `;
 
 exports[`EditableValue should be able to pass in custom colors 1`] = `
-<span style="color: rgb(0, 0, 0);" title="Click to Edit">
+<span style="color: rgb(0, 0, 0);" title="Click to Edit" class="json-editor-value">
   <span style="white-space: pre;" key="_metal_jsx_1">true</span>
 </span>
 `;
@@ -31,13 +31,13 @@ Object {
 `;
 
 exports[`EditableValue should render in readOnly mode 1`] = `
-<span style="color: rgb(17, 119, 0);" title="Read Only">
+<span style="color: rgb(17, 119, 0);" title="Read Only" class="json-editor-value">
   <span style="white-space: pre;" key="_metal_jsx_1">Function()</span>
 </span>
 `;
 
 exports[`EditableValue should render with editing enabled 1`] = `
-<span style="color: rgb(28, 0, 207);" title="Click to Edit">
+<span style="color: rgb(28, 0, 207);" title="Click to Edit" class="json-editor-value">
   <input value="1" ref="input" key="_metal_jsx_3">
 </span>
 `;

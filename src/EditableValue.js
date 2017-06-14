@@ -3,6 +3,22 @@ import Component, {Config} from 'metal-jsx';
 import {TYPE_COLORS} from './util';
 
 class EditableValue extends Component {
+  created() {
+    this._firstRender = true;
+  }
+
+  addFlash() {
+    this.element.classList.add('flash');
+
+    this.removeFlash();
+  }
+
+  removeFlash() {
+    setTimeout(() => {
+      this.element.classList.remove('flash');
+    }, 100);
+  }
+
   getTypeStyle(value) {
     const {readOnly, typeColors = {}} = this.props;
 
@@ -53,6 +69,14 @@ class EditableValue extends Component {
     }
   }
 
+  syncValue(newVal, oldVal) {
+    if (!this._firstRender && newVal !== oldVal) {
+      this.addFlash();
+    } else {
+      this._firstRender = false;
+    }
+  }
+
   render() {
     const {readOnly, value} = this.props;
     const {editing} = this.state;
@@ -65,6 +89,7 @@ class EditableValue extends Component {
 
     return (
       <span
+        class="json-editor-value"
         onClick={this.handleValueEdit.bind(this)}
         style={this.getTypeStyle(retVal)}
         title={readOnly ? 'Read Only' : 'Click to Edit'}

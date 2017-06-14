@@ -31,6 +31,7 @@ class JSONEditor extends Component {
       <Tree
         arrowRenderer={arrowRenderer}
         data={data}
+        elementClasses="json-editor-container"
         expandedNodes={this.state.expandedNodes}
         onChange={this.handleChange.bind(this)}
         onToggleExpand={this.handleToggleExpand.bind(this)}

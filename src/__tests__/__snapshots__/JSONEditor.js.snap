@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`JSONEditor renders 1`] = `<ul class="tree-container" style="list-style: none; margin: 0px;"></ul>`;
+exports[`JSONEditor renders 1`] = `<ul class="tree-container json-editor-container" style="list-style: none; margin: 0px;"></ul>`;
 
 exports[`JSONEditor renders with custom typeColors 1`] = `
-<ul class="tree-container" style="list-style: none; margin: 0px;">
+<ul class="tree-container json-editor-container" style="list-style: none; margin: 0px;">
   <li key="_metal_jsx_1">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">bar: </span>
-      <span style="color: rgb(28, 0, 207);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(28, 0, 207);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">1</span>
       </span>
     </div>
@@ -15,7 +15,7 @@ exports[`JSONEditor renders with custom typeColors 1`] = `
   <li key="_metal_jsx_2">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">baz: </span>
-      <span style="color: rgb(170, 13, 145);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(170, 13, 145);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">true</span>
       </span>
     </div>
@@ -23,7 +23,7 @@ exports[`JSONEditor renders with custom typeColors 1`] = `
   <li key="_metal_jsx_3">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">foo: </span>
-      <span style="color: rgb(196, 26, 22);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(196, 26, 22);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">bar</span>
       </span>
     </div>
@@ -32,11 +32,11 @@ exports[`JSONEditor renders with custom typeColors 1`] = `
 `;
 
 exports[`JSONEditor renders with custom typeColors 2`] = `
-<ul class="tree-container" style="list-style: none; margin: 0px;">
+<ul class="tree-container json-editor-container" style="list-style: none; margin: 0px;">
   <li key="_metal_jsx_1">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">bar: </span>
-      <span style="color: rgb(17, 17, 17);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(17, 17, 17);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">1</span>
       </span>
     </div>
@@ -44,7 +44,7 @@ exports[`JSONEditor renders with custom typeColors 2`] = `
   <li key="_metal_jsx_2">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">baz: </span>
-      <span style="color: rgb(0, 0, 0);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(0, 0, 0);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">true</span>
       </span>
     </div>
@@ -52,7 +52,7 @@ exports[`JSONEditor renders with custom typeColors 2`] = `
   <li key="_metal_jsx_3">
     <div key="_metal_jsx_1">
       <span style="" key="_metal_jsx_1">foo: </span>
-      <span style="color: rgb(34, 34, 34);" title="Click to Edit" key="_metal_jsx_2">
+      <span style="color: rgb(34, 34, 34);" title="Click to Edit" class="json-editor-value" key="_metal_jsx_2">
         <span style="white-space: pre;" key="_metal_jsx_1">bar</span>
       </span>
     </div>
